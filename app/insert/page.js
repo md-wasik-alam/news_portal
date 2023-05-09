@@ -20,7 +20,17 @@ const incert = () => {
     }
     const handleSubmit= async (e)=>{
         e.preventDefault();
-        await fetch("")
+        let data=  await fetch("http://127.0.0.1:3000/api/post",{
+        method:"POST",
+        headers:{
+            "content-type":"application/json",
+        },
+        body:JSON.stringify(news)
+            
+        })
+        data= await data.json();
+        console.log(data.data);
+        setNews(init);
     }
   return (
     <section className='flex w-full pt-28'>
